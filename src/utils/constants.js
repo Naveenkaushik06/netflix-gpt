@@ -7,6 +7,7 @@ export const API_OPTIONS = {
     headers: {
       accept: 'application/json',
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZTQzYTdjMGE1ZmY0NTE1OTY5MDBiYTJjNjNmN2I0OCIsInN1YiI6IjY1ODQzYTBhODgwNTUxNDBmNDI4MGI2YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.02tuDxDzy0er0cseun7gm2ezhaYhCdcAwxF-XJkrqn0'
-    }
-  };
-  
+   }
+};
+
+export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500";
