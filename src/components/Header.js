@@ -11,6 +11,7 @@ import { changeLanguage } from "../utils/configSlice";
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const user = useSelector((store) => store.user);
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
 
@@ -59,13 +60,17 @@ const Header = () => {
   };
 
   return (
-    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
-      <img className="w-36" src={LOGO} alt="logo" />
+    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-30 flex flex-col md:flex-row justify-between md:fixed top-0 left-0 overflow-hidden">
+      <img
+        className="pt-2 md:pt-0 w-28 md:w-40 -mx-6 md:mx-0 relative"
+        src={LOGO}
+        alt="logo"
+      />
       {user && (
-        <div className="flex justify-center items-center py-2 ">
+        <div className="flex justify-center items-center py-2 absolute top-3 md:top-2 right-3 md:right-8">
           {showGptSearch && (
             <select
-              className="p-2 m-2 bg-gray-900 text-white"
+              className="p-1.5 md:p-2 m-1 md:m-2 bg-gray-900 text-white"
               onChange={handleLanguageChange}
             >
               {SUPPORTED_LANGUAGES.map((lang) => (
@@ -76,7 +81,7 @@ const Header = () => {
             </select>
           )}
           <button
-            className="py-2 px-3 mx-2 my-2 bg-blue-800 text-white rounded-lg"
+            className="py-1 md:py-2 px-2 md:px-3 mx-1 md:mx-2 my-1 md:my-2 bg-blue-800 text-white rounded-lg"
             onClick={handleGptSearchClick}
           >
             {showGptSearch ? "Homepage" : "GPT Search"}
@@ -86,9 +91,11 @@ const Header = () => {
             src={user?.photoURL}
             alt="usericon"
           />
-          <button onClick={handleSignOut} className="font-bold text-white">
-            Sign Out
-          </button>
+          {!showGptSearch && (
+            <button onClick={handleSignOut} className="font-bold text-white ">
+              Sign Out
+            </button>
+          )}
         </div>
       )}
     </div>

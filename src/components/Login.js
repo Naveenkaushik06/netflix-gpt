@@ -92,13 +92,13 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img src={BG_URL} alt="logo" />
+        <img className="h-screen object-cover md:w-screen" src={BG_URL} alt="logo" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="absolute w-4/12 p-12 bg-black my-36 mx-auto right-0 left-0 text-white opacity-80"
+        className="w-full md:w-4/12 absolute p-10 md:p-12 bg-black my-0 md:my-1 mx-auto right-0 left-0 text-white opacity-80"
       >
-        <p className="font-bold text-3xl py-4">
+        <p className="font-bold text-xl md:text-3xl pt-10 md:py-4">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </p>
         {!isSignInForm && (
@@ -106,29 +106,29 @@ const Login = () => {
             ref={name}
             type="text"
             placeholder="Full Name"
-            className="p-4  my-4 w-full bg-gray-700"
+            className="p-2 md:p-4 my-4 md:my-4 w-full bg-gray-700"
           />
         )}
         <input
           ref={email}
           type="text"
           placeholder="Email Address"
-          className="p-4 my-4 w-full bg-gray-700"
+          className="p-2 md:p-4 my-4 w-full bg-gray-700"
         />
         <input
           ref={password}
           type="password"
           placeholder="Password"
-          className="p-4  my-4 w-full bg-gray-700"
+          className="p-2 md:p-4  my-4 w-full bg-gray-700"
         />
         <p className="text-red-500 font-bold text-lg py-2">{errorMessage}</p>
         <button
-          className="p-4 my-6 bg-red-700 w-full rounded-lg"
+          className="p-2 md:p-4 my-2 md:my-4 bg-red-700 w-full rounded-lg"
           onClick={handleButtonClick}
         >
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
-        <p className="py-4 font-bold cursor-pointer" onClick={toggleSignInForm}>
+        <p className="md:px-10 px-8 py-2 md:py-2 font-bold cursor-pointer" onClick={toggleSignInForm}>
           {isSignInForm
             ? "New to Netflix? Sign up now."
             : "Already registered? Sign In Now."}
